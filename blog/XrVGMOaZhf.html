@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>enter与blur事件 - 我是程序员</title>
-        <meta name="keywords" content="enter,blur">
-        <meta name="description" content="1111">
+    <title>git基本使用 - 我是程序员</title>
+        <meta name="keywords" content="git">
+        <meta name="description" content="123">
 
     <link rel="stylesheet" href="../resource/static/plugin/highlight/styles/github.min.css">
     <link rel="stylesheet" href="../resource/static/plugin/viewer/viewer.min.css">
@@ -162,27 +162,66 @@
         <div class="container">
             <div class="container-content">
                 <div>
-                    <div class="blog-title">enter与blur事件</div>
+                    <div class="blog-title">git基本使用</div>
                     <div class="blog-info">
-                        <div class="time">2023-12-24 12:57:56</div>
+                        <div class="time">2023-12-24 05:31:22</div>
                         <div class="nick-name">作者：<a href="../user.html#100000">多多洛2021</a></div>
                         <div class="category">分类专栏：
                                 <a href="../category/10040.html">vue3使用</a>
                         </div>
 
                     </div>
-                    <div class="content" id="content"><p data-v-md-line="1">解决enter，blur事件执行两次的问题<br>
-<img src="../resource/image/202312/hkpfkrlCxSbfAYvjverPJuTJFBdoeN.png" alt="图片"><br>
-要求 input 框失焦或者键盘按下 Enter 键时触发 save 事件，但是实际上在按下 Enter 键后，会触发两次save 事件</p>
-<p data-v-md-line="5">原因：键盘按下 Enter 键执行 save 方法同时会自动触发 blur事件，导致 save 被执行了两次<br>
-需要将 @keyup.enter=“$event.target.blur” 改成 @keyup.enter=“$event.target.blur（）”<br>
-（）需要加上</p>
-</div>
+                    <div class="content" id="content"><p data-v-md-line="1">在 Github 配置 SSH keys</p>
+<ol data-v-md-line="3">
+<li>检查是否已经有 SSH-Key<br>
+打开Git bash，进入 ~/.ssh 目录，通过 ls 命令看看自个儿的电脑上有 SSH-Key 的相关文件没！</li>
+</ol>
+<div data-v-md-line="5"><div class="v-md-pre-wrapper v-md-pre-wrapper- extra-class"><pre class="v-md-prism-"><code>$ cd ~/.ssh
+$ ls
+</code></pre>
+</div></div><p data-v-md-line="9">如果显示 id_rsa 和 id_rsa.pub 文件，说明已经有SSH Key了。如果没有，那么根据步骤2生成一个！</p>
+<ol start="2" data-v-md-line="11">
+<li>生成一个（或多个）SSH-Key<br>
+生成一个 Github 用的 SSH-Key，其中 github_id_rsa 为密钥的文件名，~/.ssh/github_id_rsa 为密钥目录位置：</li>
+</ol>
+<div data-v-md-line="13"><div class="v-md-pre-wrapper v-md-pre-wrapper- extra-class"><pre class="v-md-prism-"><code>$ ssh-keygen -t rsa -C '[邮箱]' -f ~/.ssh/github_id_rsa
+</code></pre>
+</div></div><p data-v-md-line="16">生成一个 Gitlab 用的 SSH-Key，其中 gitlab_id_rsa 为密钥的文件名，~/.ssh/gitlab_id_rsa 为密钥目录位置：</p>
+<div data-v-md-line="17"><div class="v-md-pre-wrapper v-md-pre-wrapper- extra-class"><pre class="v-md-prism-"><code>$ ssh-keygen -t rsa -C '[邮箱]' -f ~/.ssh/gitlab_id_rsa
+</code></pre>
+</div></div><ol start="3" data-v-md-line="20">
+<li>新建config并配置<br>
+在 ~/.ssh 目录下，通过 touch 命令新建 config 文件,无后缀<br>
+在 config 文件 中，添加如下内容：</li>
+</ol>
+<div data-v-md-line="23"><div class="v-md-pre-wrapper v-md-pre-wrapper- extra-class"><pre class="v-md-prism-"><code># github
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/github_id_rsa
+
+# gitlab
+Host gitlab.com
+HostName gitlab.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/gitlab_id_rsa
+</code></pre>
+</div></div><h1 data-v-md-heading="如果生成多个-ssh-key-则按上面的格式继续往下写" data-v-md-line="36">如果生成多个 SSH-Key , 则按上面的格式继续往下写</h1>
+<p data-v-md-line="38">其中 Host 和 HostName 填写 Git 服务器的域名，IdentityFile 指定私钥的路径（在第二步生成 SSH-Key 时，我们已经指定该路径，拷贝过来即可）。</p>
+<ol start="4" data-v-md-line="40">
+<li>获取 SSH Key<br>
+前往 ~/.ssh/ 目录下查看生成的文件：</li>
+</ol>
+<p data-v-md-line="43">生成的文件以 [xxx]_rsa 开头, [xxx]_rsa 是私钥, [xxx]_rsa.pub 是公钥。</p>
+<p data-v-md-line="45">通过 cat 命令查看公钥文件里的内容，拷贝内容放到 Github 上就可以正常使用了。</p>
+<div data-v-md-line="46"><div class="v-md-pre-wrapper v-md-pre-wrapper- extra-class"><pre class="v-md-prism-"><code>cat ~/.ssh/[xxx]_rsa.pub
+</code></pre>
+</div></div></div>
                 </div>
             </div>
                 <div class="container-comment">
                     <div class="comment-title">评论</div>
-                        <div id="SOHUCS" sid="YYyGQFELJr"></div>
+                        <div id="SOHUCS" sid="XrVGMOaZhf"></div>
                         <script charset="utf-8" type="text/javascript" src="https://cy-cdn.kuaizhan.com/upload/changyan.js"></script>
                         <script type="text/javascript">
                             window.changyan.api.config({

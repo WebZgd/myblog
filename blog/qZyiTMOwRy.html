@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>enter与blur事件 - 我是程序员</title>
-        <meta name="keywords" content="enter,blur">
-        <meta name="description" content="1111">
+    <title>github page使用 - 我是程序员</title>
+        <meta name="keywords" content="GitHub">
+        <meta name="description" content="sdfsdf">
 
     <link rel="stylesheet" href="../resource/static/plugin/highlight/styles/github.min.css">
     <link rel="stylesheet" href="../resource/static/plugin/viewer/viewer.min.css">
@@ -162,35 +162,49 @@
         <div class="container">
             <div class="container-content">
                 <div>
-                    <div class="blog-title">enter与blur事件</div>
+                    <div class="blog-title">github page使用</div>
                     <div class="blog-info">
-                        <div class="time">2023-12-24 12:57:56</div>
+                        <div class="time">2023-12-24 05:35:11</div>
                         <div class="nick-name">作者：<a href="../user.html#100000">多多洛2021</a></div>
                         <div class="category">分类专栏：
                                 <a href="../category/10040.html">vue3使用</a>
                         </div>
 
                     </div>
-                    <div class="content" id="content"><p data-v-md-line="1">解决enter，blur事件执行两次的问题<br>
-<img src="../resource/image/202312/hkpfkrlCxSbfAYvjverPJuTJFBdoeN.png" alt="图片"><br>
-要求 input 框失焦或者键盘按下 Enter 键时触发 save 事件，但是实际上在按下 Enter 键后，会触发两次save 事件</p>
-<p data-v-md-line="5">原因：键盘按下 Enter 键执行 save 方法同时会自动触发 blur事件，导致 save 被执行了两次<br>
-需要将 @keyup.enter=“$event.target.blur” 改成 @keyup.enter=“$event.target.blur（）”<br>
-（）需要加上</p>
-</div>
+                    <div class="content" id="content"><p data-v-md-line="1">从公钥复制好后回到GitHub，点击右上角的setting，左侧菜单切换到SSH and GPG keys，点击New SSH key。输入复制的密钥<br>
+为了验证是否成功，在git bash下输入：</p>
+<div data-v-md-line="3"><div class="v-md-pre-wrapper v-md-pre-wrapper- extra-class"><pre class="v-md-prism-"><code>ssh -T git@github.com
+</code></pre>
+</div></div><p data-v-md-line="6">如果是第一次的会提示是否continue，输入<strong>yes</strong>就会看到：<br>
+You’ve successfully authenticated, but GitHub does not provide shell access。<br>
+这就表示已成功连上github了。<br>
+注：一定要输入yes，不能连续enter</p>
+<h3 data-v-md-heading="_1、建立本地仓库并初始化" data-v-md-line="11">1、建立本地仓库并初始化</h3>
+<p data-v-md-line="12">在本地电脑的一个盘里面新建一个文件夹，然后在文件夹上点击 右键—Git bash here<br>
+在Git命令窗口输入：</p>
+<div data-v-md-line="14"><div class="v-md-pre-wrapper v-md-pre-wrapper- extra-class"><pre class="v-md-prism-"><code>git init
+</code></pre>
+</div></div><p data-v-md-line="17">在Git上输入以下命令建立本地与github上新建项目连接：</p>
+<div data-v-md-line="18"><div class="v-md-pre-wrapper v-md-pre-wrapper- extra-class"><pre class="v-md-prism-"><code>git remote add origin git@github.com:fang-king/Selenium.git
+</code></pre>
+</div></div><p data-v-md-line="21">git remote add origin 固定，后面的内容是复制github上新建项目的ssh网址。</p>
+<p data-v-md-line="23">同步github新建项目到本地<br>
+使用以下命令</p>
+<div data-v-md-line="25"><div class="v-md-pre-wrapper v-md-pre-wrapper- extra-class"><pre class="v-md-prism-"><code>git pull origin master
+</code></pre>
+</div></div><p data-v-md-line="28">5、添加本地文件到缓存区<br>
+将需要上传的代码或文件拷贝到新建文件夹里。</p>
+<p data-v-md-line="31">在Git里输入以下代码回车</p>
+<div data-v-md-line="32"><div class="v-md-pre-wrapper v-md-pre-wrapper- extra-class"><pre class="v-md-prism-"><code>git add .
+</code></pre>
+</div></div><p data-v-md-line="35">注意add与“.”之间有一个空格。</p>
+<p data-v-md-line="37">6、为上传文件添加注释<br>
+等待缓存完毕，输入命令：</p>
+<div data-v-md-line="39"><div class="v-md-pre-wrapper v-md-pre-wrapper- extra-class"><pre class="v-md-prism-"><code>git commit -m &quot;first push&quot;
+</code></pre>
+</div></div></div>
                 </div>
             </div>
-                <div class="container-comment">
-                    <div class="comment-title">评论</div>
-                        <div id="SOHUCS" sid="YYyGQFELJr"></div>
-                        <script charset="utf-8" type="text/javascript" src="https://cy-cdn.kuaizhan.com/upload/changyan.js"></script>
-                        <script type="text/javascript">
-                            window.changyan.api.config({
-                                appid: "1",
-                                conf: '1'
-                            });
-                        </script>
-                </div>
         </div>
         <div class="right">
             <div class="container" id="right-container">
